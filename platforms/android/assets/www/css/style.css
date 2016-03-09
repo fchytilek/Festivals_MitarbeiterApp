@@ -1,0 +1,81 @@
+.col-offset-15 {
+  margin-left: 15%; }
+
+.col-offset-18_3 {
+  margin-left: 18.3333%; }
+
+.col-40 {
+    max-width:40%;
+}
+.item{
+  white-space: normal;
+}
+.col{
+	white-space: normal;
+}
+
+.ideal_Item {    
+}
+
+.standoptionen_standdetails_details{    
+}
+.standoptionen_mitarbeiterliste{  
+}
+.standoptionen_mitarbeiterliste_button{    
+}
+.arbeit_planen_hinzufuegen_pause{
+    
+}
+.arbeit_bearbeiten_pause{
+    
+}
+.item-content{
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    
+   -webkit-box-direction: normal !important;
+    -moz-box-direction: normal !important;
+    -webkit-box-orient: horizontal !important;
+    -moz-box-orient: horizontal !important;
+    -webkit-flex-direction: row !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+   
+    -webkit-box-pack: justify  !important;
+    -moz-box-pack: justify  !important;
+    -webkit-justify-content: space-between !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    -webkit-align-content: stretch !important;
+    -ms-flex-line-pack: stretch !important;
+    align-content: stretch !important;
+  
+    -webkit-box-align: center !important;
+    -moz-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+a {
+    color: black;
+	text-decoration: none;
+}
+
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
+}
+
+.login-image {
+	background: url("../img/beer.gif") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+	
+}
