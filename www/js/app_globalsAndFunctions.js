@@ -36,6 +36,13 @@ var maDetailsDataGlobal = {};
 var arbeitDetailsDataGlobal = {};
 
 $(document).ready(function(){
+    
+    var loginContentHeight = $('#login_content').height();
+    var windowHeight = $('#login_content').scope().getWindowHeight();
+    $('#login_content').css('margin-top', (windowHeight-93-loginContentHeight)/2 );   
+    
+    
+    
     var pausenId = 1;
      $("#arbeit_planen_hinzufuegen_pausenfeld_add_button").click(function(){
         pausenId++;

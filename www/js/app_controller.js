@@ -525,6 +525,9 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         arbeitDetailsDataGlobal = $scope.maDetailsData().arbeitstage[arbeitstag].arbeiten[arbeit];       
         $state.go('tabs.past_arbeitszeiten_details');
     };
+    $scope.getWindowHeight = function() {
+        return $window.innerHeight;
+    };
 })
 
 .run(function($ionicPlatform, $window) {
@@ -537,7 +540,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    var loginContentHeight = $('#login_content').height();
-    $('#login_content').css('margin-top', ($window.innerHeight-93-loginContentHeight)/2 );    
+   // var loginContentHeight = $('#login_content').height();
+    //$('#login_content').css('margin-top', ($window.innerHeight-93-loginContentHeight)/2 );    
   });
 });
