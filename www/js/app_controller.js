@@ -40,7 +40,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         };
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/veranstaltung/ma_details",
+            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -58,7 +58,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/veranstaltung/ma_details",
+            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -85,7 +85,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         };
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/veranstaltung/anreisekosten_status",
+            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_status",
             data: json,
             dataType: 'json'
         }).then(function(data){ 
@@ -131,7 +131,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         };
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/veranstaltung/ma_details",
+            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -147,7 +147,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
                     standnummer:geleiteterStandGlobal};
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/veranstaltung/stand/details",
+            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -369,7 +369,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
             var json = {vid:aktuelleVidGlobal};
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/veranstaltung",
+                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
                 data: json,
                 dataType: 'json'
             }).then(function(data) {
@@ -401,7 +401,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
                      standnummer:geleiteterStandGlobal };
         $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/veranstaltung/offeneArbeiten",
+                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/offeneArbeiten",
                 data: json,
                 dataType: 'json'
             }).then(function(data) {
@@ -450,7 +450,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
             
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/veranstaltung",
+                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
                 data: json,
                 dataType: 'json'
             }).then(function(data) {
@@ -467,7 +467,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
             
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/veranstaltung/stand/details",
+                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
                 data: json,
                 dataType: 'json'
             }).then(function(data){

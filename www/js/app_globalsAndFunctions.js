@@ -95,7 +95,7 @@ function mitarbeiterHinzufuegen(){
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/ma",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma",
         data: test,
         dataType: 'json'
     }).then(function(data) {
@@ -111,7 +111,7 @@ function verifyMitarbeiter(){
     $.ajax({
         
         type: "GET",
-        url: "http://localhost:8080/ma/login",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/login",
         data: input,
         dataType: 'json'
         
@@ -186,7 +186,7 @@ function eventHinzufuegen(){
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
         data: eventJson,
         dataType: 'json'
     }).then(function(data) {
@@ -202,7 +202,7 @@ function ma2Event(){
                         username: username};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/addMitarbeiter",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/addMitarbeiter",
         data: ma2EventJson,
         dataType: 'json'
     }).then(function(data) {
@@ -216,7 +216,7 @@ function veranstaltungsDetailsAbrufen(vid) {
     var json = {vid:vid};
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -231,7 +231,7 @@ function veranstaltung_aktuell(){
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
         dataType: 'json'
     }).then(function(data) {
         var str="";
@@ -260,7 +260,7 @@ function mitarbeiterLoeschen() {
     var json={username: username};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/ma/delete",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/delete",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -274,7 +274,7 @@ function mitarbeiter_aktuell(){
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/ma",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma",
         dataType: 'json'
     }).then(function(data) {
         var str="";
@@ -306,7 +306,7 @@ function mitarbeiterUpdaten() {
                 passwortNeu:passwortNeu};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/ma/update",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/update",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -324,7 +324,7 @@ function standHinzufuegen() {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/addStand",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/addStand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -342,7 +342,7 @@ function standLoeschen() {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/deleteStand",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/deleteStand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -357,7 +357,7 @@ function standListe_aktuell() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung/stand",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -391,7 +391,7 @@ function standleiterBestimmen(){
                 username:username};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/stand/standleiter",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/standleiter",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -409,7 +409,7 @@ function stellvertreterBestimmen(){
                 username:username};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/stand/stellvertreter",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/stellvertreter",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -424,7 +424,7 @@ function mitarbeiterVerschieben(usernames){
                 usernames:usernames};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/stand/addMitarbeiter",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/addMitarbeiter",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -485,7 +485,7 @@ function standDetails_aktuell(){
                 standnummer:geleiteterStandGlobal};
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung/stand/details",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -517,7 +517,7 @@ function arbeitBeginnen(usernames){
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/beginnen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/beginnen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -551,7 +551,7 @@ function pauseHinzufuegen(usernames) {
     }
      $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/pause",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/pause",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -579,7 +579,7 @@ function arbeitBeenden(usernames) {
                 arbeitsEnde:arbeitBeenden_arbeitsEndeGlobal};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/beenden",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/beenden",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -606,7 +606,7 @@ function mitarbeiterAbschliessen(usernames) {
                 usernames:usernames};
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/abschliessen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/abschliessen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -630,7 +630,7 @@ function abrechnung_aktuell() {
     var json = {vid:vid};
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung/abrechnung",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/abrechnung",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1207,7 +1207,7 @@ function arbeit_bearbeiten(username, vid, arbeitsBeginn_alt) {
     
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/bearbeiten",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/bearbeiten",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1242,7 +1242,7 @@ function arbeit_planen_hinzufuegen(usernames, boolean) {
     //alert("after");
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/planen_hinzufuegen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/planen_hinzufuegen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1286,7 +1286,7 @@ function arbeit_loeschen(arbeitsBeginn, username, isArbeitAktiv) {
     };
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/loeschen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/loeschen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1339,7 +1339,7 @@ function pause_wuenschen(data, i) {
     };
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/arbeit/pause_wuenschen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/pause_wuenschen",
         data: json,
         dataType: 'json'
     }).then(function(data){        
@@ -1362,7 +1362,7 @@ function anreisekosten_angeben_anzeigen() {
     };
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung/anreisekosten_status",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_status",
         data: json,
         dataType: 'json'
     }).then(function(data){  
@@ -1431,7 +1431,7 @@ function anreisekosten_angeben() {
             var help = JSON.stringify(json);
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/veranstaltung/anreisekosten_angeben",
+                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_angeben",
                 data: json,
                 dataType: 'json'
             }).then(function(data){
@@ -1528,7 +1528,7 @@ function anreisekosten_bestaetigen_liste_abrufen() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/veranstaltung/anreisekosten_liste_abrufen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_liste_abrufen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1574,7 +1574,7 @@ function anreisekosten_bestaetigen_und_loeschen(bool,vid, username) {
     };
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/veranstaltung/anreisekosten_bestaetigen_loeschen",
+        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_bestaetigen_loeschen",
         data: json,
         dataType: 'json'
     }).then(function(data){
