@@ -73,7 +73,7 @@ a {
 }
 
 .login-image {
-	background: url("../img/beer.gif") no-repeat center center fixed; 
+	background: url("../img/beer.png") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
