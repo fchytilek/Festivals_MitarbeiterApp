@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.festivalapp680687" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"  xmlns:gap   =    "http://phonegap.com/ns/1.0"
+<widget id="com.ionicframework.festivalapp680687" 
+		version="0.0.1" xmlns="http://www.w3.org/ns/widgets"  
+		xmlns:gap   =    "http://phonegap.com/ns/1.0"
         versionCode =   "1">
+	
   <name>FestivalApp2</name>
+	
   <description>
         An Ionic Framework and Cordova project.
     </description>
+	
   <author email="you@example.com" href="http://example.com.com/">
       Your Name Here
     </author>
+	
   <content src="index.html"/>
-  <access origin="*"/>
-  <preference name="webviewbounce" value="false"/>
-  <preference name="UIWebViewBounce" value="false"/>
-  <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
-  <preference name="BackupWebStorage" value="none"/>
-  <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="2000"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
-  <platform name="android">
-    <icon src="img/icon.png"/>
-    <splash src="img/beer.png"/>
-  </platform>
-  <platform name="ios">
-    <icon src="img/icon.png"/>
-    <splash src="img/beer.png"/>
-  </platform>
+	
+	
+
+
+
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="SplashScreenDelay" value="10000" />
+	<gap:splash src="img/beer.png" />
+
+	
+	<plugin name="cordova-plugin-console" spec="1.0.1" source="pgb" />
+	<plugin name="cordova-plugin-device" spec="1.0.1" source="pgb" />
+	<plugin name="cordova-plugin-splashscreen" spec="2.1.0" source="pgb" />
+	<plugin name="org.apache.cordova.statusbar" spec="0.1.4" source="pgb" />
+	<plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+	<plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" />
+	
 </widget>
