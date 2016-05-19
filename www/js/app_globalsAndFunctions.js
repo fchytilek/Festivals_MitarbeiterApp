@@ -95,7 +95,7 @@ function mitarbeiterHinzufuegen(){
 
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/ma",
         data: test,
         dataType: 'json'
     }).then(function(data) {
@@ -111,7 +111,7 @@ function verifyMitarbeiter(){
     $.ajax({
         
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/login",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/ma/login",
         data: input,
         dataType: 'json'
         
@@ -186,7 +186,7 @@ function eventHinzufuegen(){
 
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung",
         data: eventJson,
         dataType: 'json'
     }).then(function(data) {
@@ -202,7 +202,7 @@ function ma2Event(){
                         username: username};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/addMitarbeiter",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/addMitarbeiter",
         data: ma2EventJson,
         dataType: 'json'
     }).then(function(data) {
@@ -216,7 +216,7 @@ function veranstaltungsDetailsAbrufen(vid) {
     var json = {vid:vid};
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -231,7 +231,7 @@ function veranstaltung_aktuell(){
 
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung",
         dataType: 'json'
     }).then(function(data) {
         var str="";
@@ -260,7 +260,7 @@ function mitarbeiterLoeschen() {
     var json={username: username};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/delete",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/ma/delete",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -274,7 +274,7 @@ function mitarbeiter_aktuell(){
 
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/ma",
         dataType: 'json'
     }).then(function(data) {
         var str="";
@@ -306,7 +306,7 @@ function mitarbeiterUpdaten() {
                 passwortNeu:passwortNeu};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/ma/update",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/ma/update",
         data: json,
         dataType: 'json'
     }).then(function(data) {
@@ -324,7 +324,7 @@ function standHinzufuegen() {
 
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/addStand",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/addStand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -342,7 +342,7 @@ function standLoeschen() {
 
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/deleteStand",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/deleteStand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -357,7 +357,7 @@ function standListe_aktuell() {
 
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -391,7 +391,7 @@ function standleiterBestimmen(){
                 username:username};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/standleiter",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/standleiter",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -409,7 +409,7 @@ function stellvertreterBestimmen(){
                 username:username};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/stellvertreter",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/stellvertreter",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -419,15 +419,24 @@ function stellvertreterBestimmen(){
 }
 
 function mitarbeiterVerschieben(usernames){
-    var json = {vid:aktuelleVidGlobal,
-                standnummer:mitarbeiterVerschieben_standnummerGlobal,
-                usernames:usernames};
+    
+    var json = {
+        
+        vid : aktuelleVidGlobal,
+        standnummer : mitarbeiterVerschieben_standnummerGlobal,
+        usernames : usernames
+    
+    };
+    
     $.ajax({
-        type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/addMitarbeiter",
-        data: json,
-        dataType: 'json'
-    }).then(function(data){
+        
+        type : "POST",
+        url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/addMitarbeiter",
+        data : json,
+        dataType : 'json'
+        
+    }).then( function(data) {
+        
         if(data.length == 0) {
             $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Success", "Mitarbeiter verschoben");
             $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-2);            
@@ -485,7 +494,7 @@ function standDetails_aktuell(){
                 standnummer:geleiteterStandGlobal};
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/details",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -517,7 +526,7 @@ function arbeitBeginnen(usernames){
 
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/beginnen",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/beginnen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -551,7 +560,7 @@ function pauseHinzufuegen(usernames) {
     }
      $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/pause",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/pause",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -579,7 +588,7 @@ function arbeitBeenden(usernames) {
                 arbeitsEnde:arbeitBeenden_arbeitsEndeGlobal};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/beenden",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/beenden",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -606,7 +615,7 @@ function mitarbeiterAbschliessen(usernames) {
                 usernames:usernames};
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/abschliessen",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/abschliessen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -630,7 +639,7 @@ function abrechnung_aktuell() {
     var json = {vid:vid};
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/abrechnung",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/abrechnung",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -676,10 +685,14 @@ function abrechnung_aktuell() {
 
 function ma_details(data) {     
          
-        var string ="";               
-        if(data.mitarbeiterName=="Exception") {
-            string = "<tr><th>Exception</th></tr>";
+        var string ="";    
+        
+        if( data.mitarbeiterName === null ) {
+            
+            string = "<div class='card'><div class='item item-divider'>Es ist ein unerwarteter Fehler aufgetreten!</div></div>";
+        
         } else {
+            
             var weekday = new Array(7);
             weekday[0]=  "Sonntag";
             weekday[1] = "Montag";
@@ -691,24 +704,36 @@ function ma_details(data) {
             
             var idCountHelp = 0;
             var countHelp = 0;
-            if(data.arbeitsbeginn.length > 0) {
+            
+            if( data.arbeitsbeginn.length > 0 ) {
                 var tagLetzterArbeit = data.arbeitsbeginn[0];
             }     
-            for(j in data.standnummer) {
+            
+            for( j in data.standnummer ) {
+                
                 var arbeitsbeginn = new Date(data.arbeitsbeginn[j]);
                 var arbeitsende = new Date(data.arbeitsende[j]);
-                if(countHelp === 0 || arbeitsbeginn.getDate() !== tagLetzterArbeit.getDate() ) {
+                
+                if( countHelp === 0 || arbeitsbeginn.getDate() !== tagLetzterArbeit.getDate() ) {
+                    
                     countHelp++;
                     tagLetzterArbeit = arbeitsbeginn;
                     string += "<div class='item item-divider'>Tag "+ countHelp + " - " + weekday[arbeitsbeginn.getDay()] + " - " + correctDateFormat(arbeitsbeginn.getDate()) + "." + correctDateFormat((arbeitsbeginn.getMonth()+1)) + "." + arbeitsbeginn.getFullYear() + "</div>";
+                
                 }
+                
                 string += "<div class='item'><div id='arbeit_details_anzeigen_"+idCountHelp+"' class='row' style='text-align:center;'>\n\
                                 <div class='col' style='position:relative;max-width:20%'>";
-                if(data.geplant[j]===false){
+                
+                if( data.geplant[j] === false ) {
+                    
                     string += "<i style='color:Chartreuse;font-size:60px;display:block;' class='ion-checkmark-round'></i>";
+                
                 } else {
+                    
                     string += "<i style='font-size:60px;display:block;' class='ion-clipboard'></i>";
                 }
+                
                 string +=        "</div>\n\
                                 <div class='col' style='max-width:80%'>"
                                     + correctDateFormat(arbeitsbeginn.getHours()) + ":" + correctDateFormat(arbeitsbeginn.getMinutes()) + " - "
@@ -1181,95 +1206,131 @@ function arbeit_bearbeiten_anzeigen(data, index, vid, username) {
 }
 
 function arbeit_bearbeiten(username, vid, arbeitsBeginn_alt) {
+    
     var standnummer = $('#arbeit_bearbeiten_standnummer').val();
     var abrechnungsStatus = $('#arbeit_bearbeiten_abrechnungsStatus').val();
     var arbeitsBeginn = new Date($('#arbeit_bearbeiten_anfang_date').val() +" "+ $('#arbeit_bearbeiten_anfang_time').val());
     var arbeitsEnde = new Date($('#arbeit_bearbeiten_ende_date').val() +" "+ $('#arbeit_bearbeiten_ende_time').val());
+   
     var geplant = $('#arbeit_bearbeiten_geplant')[0].checked;
-    alert(geplant);
+    alert("Geplant: " + geplant);
     var pausenListe = [];     
     var pausen = document.getElementsByClassName("arbeit_bearbeiten_pause");
-    for(i=0;i<pausen.length;i++){            
+    
+    for( i = 0; i < pausen.length; i++ ) {            
         pausenListe.push(new Date($('#arbeit_bearbeiten_anfang_date').val() +" "+ pausen[i].value));       
     }    
     
     var json = {
-        vid:vid,
-        username:username,
-        standnummer:standnummer,
-        abrechnungsStatus:abrechnungsStatus,
-        arbeitsBeginn:arbeitsBeginn,
-        arbeitsEnde:arbeitsEnde,
-        arbeitsBeginn_alt:arbeitsBeginn_alt,
-        pausenListe:pausenListe,
-        geplant:geplant
+        
+        vid : vid,
+        username : username,
+        standnummer : standnummer,
+        abrechnungsStatus : abrechnungsStatus,
+        arbeitsBeginn : arbeitsBeginn,
+        arbeitsEnde : arbeitsEnde,
+        arbeitsBeginn_alt : arbeitsBeginn_alt,
+        pausenListe : pausenListe,
+        geplant : geplant
+    
     };
+    alert(JSON.stringify(json))
     
     $.ajax({
-        type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/bearbeiten",
-        data: json,
-        dataType: 'json'
-    }).then(function(data){
-        if(data[0] == "Arbeit wurde bearbeitet"){
-            if(callToDeleteOrChangeFromOffeneArbeiten == true) {
+        
+        type : "POST",
+        url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/bearbeiten",
+        data : json,
+        dataType : 'json'
+        
+    }).then( function(data) {
+       
+        if( data[0] == "Arbeit wurde bearbeitet" ) {
+            
+            if( callToDeleteOrChangeFromOffeneArbeiten == true ) {
+                
                 $("#arbeitszeiten_details_content").scope().offene_arbeiten_anzeigen();
                 $('#arbeitszeiten_details_content').scope().showAlert("Success", "Arbeit wurde bearbeitet");
+            
             } else {
+            
                 $("#arbeitszeiten_details_content").scope().ma_details(username); 
                 $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Success", "Arbeit wurde bearbeitet");
+            
             }
             
         } else {
-            var ausgabe = "Arbeit wurde nicht bearbeitet! <br><br>" + data[0];            
-            $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Error", ausgabe);
-            $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-1);  
+            
+            var ausgabe = "Arbeit wurde nicht bearbeitet! <br><br>" + data[0];    
+            
+            if( callToDeleteOrChangeFromOffeneArbeiten == true ) {
+                
+                $("#arbeitszeiten_details_content").scope().showAlert("Error", ausgabe);
+                
+            } else {
+                
+                $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Error", ausgabe);
+                $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-1);  
+            }
+            
         }        
     });
 }  
 
-function arbeit_planen_hinzufuegen(usernames, boolean) {
-    var json = {        
-        vid:aktuelleVidGlobal,
-        usernames:usernames,
-        standnummer:geleiteterStandGlobal,
-        abrechnungsStatus:arbeitPlanenHinzufuegen_abrechnungsStatusGlobal,
-        geplant:boolean,
-        arbeitsBeginn:arbeitPlanenHinzufuegen_arbeitsBeginnGlobal,
-        arbeitsEnde:arbeitPlanenHinzufuegen_arbeitsEndeGlobal,
-        pausenListe:arbeitPlanenHinzufuegen_pausenListeGlobal            
+function arbeit_planen_hinzufuegen(usernames, geplant) {
+    var json = {
+        
+        vid : aktuelleVidGlobal,
+        usernames : usernames,
+        standnummer : geleiteterStandGlobal,
+        abrechnungsStatus : arbeitPlanenHinzufuegen_abrechnungsStatusGlobal,
+        geplant : geplant,
+        arbeitsBeginn : arbeitPlanenHinzufuegen_arbeitsBeginnGlobal,
+        arbeitsEnde : arbeitPlanenHinzufuegen_arbeitsEndeGlobal,
+        pausenListe : arbeitPlanenHinzufuegen_pausenListeGlobal            
+    
     };
-    //alert("after");
+    
     $.ajax({
-        type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/planen_hinzufuegen",
-        data: json,
-        dataType: 'json'
-    }).then(function(data){
-        if(data[0]=="Es hat alles geklappt") {
+        
+        type : "POST",
+        url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/planen_hinzufuegen",
+        data : json,
+        dataType : 'json'
+        
+    }).then( function(data) {
+        
+        if( data.length === 0 ) {
             
-            if(boolean == true) {
+            if( geplant == true ) {
                 $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Success", "Arbeit wurde geplant");
             } else {
                 $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Success", "Arbeit wurde hinzugef&uumlgt");
-            }            
+            }
+            
             $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-2);        
-        } else if(data[0]=="Pausenbeginn liegt nicht im Bereich der Arbeit " || data[0]=="Pausenbeginn liegt vor Ende der letzen Pause" 
-                || data[0]=="Pausenende muss zwischen Pausenbeginn und Arbeitsende liegen" || data[0]=="Arbeitsbeginn oder Arbeitsende liegen nicht innerhalb der Veranstaltungszeit"
-                || data[0]=="Arbeitsbeginn muss vor Arbeitsende liegen"  || data[0]=="Kein Stand mit passender Standnummer gefunden"  || data[0]=="Ungueltiger Abrechnungsstatus fuer diese Veranstaltung") {
+        
+        } else if( data[0] == "Pausenbeginn liegt nicht im Bereich der Arbeit " || data[0] == "Pausenbeginn liegt vor Ende der letzen Pause" 
+                || data[0] == "Pausenende muss zwischen Pausenbeginn und Arbeitsende liegen" || data[0] == "Arbeitsbeginn oder Arbeitsende liegen nicht innerhalb der Veranstaltungszeit"
+                || data[0] == "Arbeitsbeginn muss vor Arbeitsende liegen"  || data[0] == "Kein Stand mit passender Standnummer gefunden"  || data[0] == "Ungueltiger Abrechnungsstatus fuer diese Veranstaltung") {
             
             $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Error", data[0]);
             $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-1);     
+        
         } else {
+            
             var ausgabe;        
-            if(boolean == true) {
+            
+            if( geplant == true) {
                 ausgabe = "Arbeit konnte nicht geplant werden f&uumlr: <br><br><b>";
             } else {
                 ausgabe = "Arbeit konnte nicht hinzugef&uumlgt werden f&uumlr: <br><br><b>";
             }
-            for(i in data) {
+            
+            for( i in data ) {
                 ausgabe += data[i] + "<br>";
             }
+            
             ausgabe += "</b><br>M&oumlgliche Ursachen: <br> Ma ist abgeschlossen <br> Arbeit &uumlberschneidet sich mit anderer Arbeit";
             $('#standoptionen_mitarbeiterliste_content').scope().showAlert("Error", ausgabe);
             $('#standoptionen_mitarbeiterliste_content').scope().historyGoBack(-1);              
@@ -1286,7 +1347,7 @@ function arbeit_loeschen(arbeitsBeginn, username, isArbeitAktiv) {
     };
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/loeschen",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/loeschen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1330,26 +1391,42 @@ function pause_wuenschen(data, i) {
     var pausenBeginn = new Date(arbeitsBeginn.getFullYear()+"-"+correctDateFormat(arbeitsBeginn.getMonth()+1)+"-"+correctDateFormat(arbeitsBeginn.getDate())+" "+ $("#pauseWuenschen_anfang_time").val());
     var pausenEnde = new Date(arbeitsBeginn.getFullYear()+"-"+correctDateFormat(arbeitsBeginn.getMonth()+1)+"-"+correctDateFormat(arbeitsBeginn.getDate())+" "+ $("#pauseWuenschen_ende_time").val());
     
-    var json = {
-        vid:aktuelleVidGlobal,
-        username:usernameGlobal,
-        arbeitsBeginn:arbeitsBeginn,
-        pausenBeginn:pausenBeginn,
-        pausenEnde:pausenEnde
-    };
-    $.ajax({
-        type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/arbeit/pause_wuenschen",
-        data: json,
-        dataType: 'json'
-    }).then(function(data){        
-       if(data[0]==="Es hat alles geklappt"){          
-           $('#arbeitszeiten_details_card').scope().showAlert("Success", "Pause wurde gew&uumlnscht");
-           $('#arbeitszeiten_details_card').scope().historyGoBack(-2);        
-        } else {
-            $('#arbeitszeiten_details_card').scope().showAlert("Error", data[0]);            
-        }
-    });        
+    if( pausenEnde < pausenBeginn ) {
+        
+         $('#arbeitszeiten_details_card').scope().showAlert("Error", "Pausenbeginn muss vor Pausenende liegen!");
+        
+    } else {
+        
+        var json = {
+
+            vid : aktuelleVidGlobal,
+            username : usernameGlobal,
+            arbeitsBeginn : arbeitsBeginn,
+            pausenBeginn : pausenBeginn,
+            pausenEnde : pausenEnde
+
+        };
+
+        $.ajax( {
+
+            type : "POST",
+            url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/arbeit/pause_wuenschen",
+            data : json,
+            dataType : 'json'
+
+        }).then( function(data) { 
+
+           if( JSON.parse(data) === true ){
+
+               $('#arbeitszeiten_details_card').scope().showAlert("Success", "Pause wurde gew&uumlnscht");
+               $('#arbeitszeiten_details_card').scope().historyGoBack(-2);        
+
+            } else {
+
+                $('#arbeitszeiten_details_card').scope().showAlert("Error", data[0]);            
+            }
+        });        
+    }
 }
 
 function anreisekosten_angeben_anzeigen() {
@@ -1362,7 +1439,7 @@ function anreisekosten_angeben_anzeigen() {
     };
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_status",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/anreisekosten_status",
         data: json,
         dataType: 'json'
     }).then(function(data){  
@@ -1431,7 +1508,7 @@ function anreisekosten_angeben() {
             var help = JSON.stringify(json);
             $.ajax({
                 type: "POST",
-                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_angeben",
+                url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/anreisekosten_angeben",
                 data: json,
                 dataType: 'json'
             }).then(function(data){
@@ -1528,7 +1605,7 @@ function anreisekosten_bestaetigen_liste_abrufen() {
 
     $.ajax({
         type: "GET",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_liste_abrufen",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/anreisekosten_liste_abrufen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1574,7 +1651,7 @@ function anreisekosten_bestaetigen_und_loeschen(bool,vid, username) {
     };
     $.ajax({
         type: "POST",
-        url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_bestaetigen_loeschen",
+        url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/anreisekosten_bestaetigen_loeschen",
         data: json,
         dataType: 'json'
     }).then(function(data){
@@ -1662,7 +1739,7 @@ function standdetailsInObjektWandeln(data, standmitarbeiterOnly){
     var istInPause;
     var istAbgeschlossen;
     
-    if(standmitarbeiterOnly === true) {
+    if( standmitarbeiterOnly === true ) {
         
         mitarbeiterListeNamen = data.mitarbeiterListe;
         mitarbeiterListeStundenGesamt = data.stundenListeGesamt;
@@ -1673,19 +1750,20 @@ function standdetailsInObjektWandeln(data, standmitarbeiterOnly){
         pauseGewuenscht = data.pauseGewuenscht;
         istInPause = data.istInPause;
         istAbgeschlossen = data.istAbgeschlossen;
+    
     } else {
         
         mitarbeiterListeNamen = data.mitarbeiterGesamtName;
         mitarbeiterListeUsernames = data.mitarbeiterGesamtUserame; 
     }
     
-    for(i in mitarbeiterListeNamen) {
+    for( i in mitarbeiterListeNamen ) {
         
         var mitarbeiter = {};
         mitarbeiter.mitarbeitername = mitarbeiterListeNamen[i];
         mitarbeiter.username = mitarbeiterListeUsernames[i];
         
-        if(standmitarbeiterOnly === true) {
+        if( standmitarbeiterOnly === true ) {
             
             mitarbeiter.stundenGesamt = mitarbeiterListeStundenGesamt[i];
             mitarbeiter.stundenAktuell = mitarbeiterListeStundenAktuell[i];
@@ -1697,11 +1775,11 @@ function standdetailsInObjektWandeln(data, standmitarbeiterOnly){
             mitarbeiter.istAbgeschlossen = istAbgeschlossen[i];
             mitarbeiter.backgroundColor = standoptionen_mitarbeiterliste_getBackgroundColor(pauseGewuenscht[i], istInPause[i], istAbgeschlossen[i]); //<- Listen müssen bei GET Veranstalugn gleich heißen !
         }
+        
         standdetailsDataArray.push(mitarbeiter);        
     }
     
     standdetailsMitarbeiterDataGlobal = standdetailsDataArray;   
-    
 }
 
 function standdetailsButtonMehrWeniger() {
@@ -1763,7 +1841,7 @@ function maDetailsInObjektWandeln(data) {
     var arbeitstag = {};  
     arbeitstag.arbeiten = []; 
     
-    if(data.arbeitsbeginn.length > 0) {
+    if( data.arbeitsbeginn.length > 0 ) {
         
         var arbeitsbeginn = new Date(data.arbeitsbeginn[0]);
         var tagLetzterArbeit = arbeitsbeginn;        
@@ -1775,7 +1853,7 @@ function maDetailsInObjektWandeln(data) {
         
     }    
     
-    for(i in data.standnummer) {
+    for( i in data.standnummer ) {
         
         var arbeitsbeginn = new Date(data.arbeitsbeginn[i]);
         var arbeitsende = new Date(data.arbeitsende[i]);
@@ -1818,7 +1896,7 @@ function maDetailsInObjektWandeln(data) {
         var pauseObjekt = {};
         var pausenListe = data.pausenListe[i].innereListe;    
         
-        for(k in pausenListe) {            
+        for( k in pausenListe ) {            
         
             var pause = new Date(pausenListe[k]); 
             
@@ -1844,11 +1922,11 @@ function maDetailsInObjektWandeln(data) {
         var pausenwunschObjekt = {};
         var wunschListe = data.pausenWunschListe[i].innereListe;
         
-        for(k in wunschListe) {            
+        for( k in wunschListe ) {            
         
             var pause = new Date(wunschListe[k]);  
         
-            if(k%2==0) {  
+            if( k%2 == 0 ) {  
                 
                 pausenwunschObjekt = {};                      
                 pausenwunschObjekt.beginn_hour = correctDateFormat(pause.getHours());
@@ -1861,7 +1939,7 @@ function maDetailsInObjektWandeln(data) {
            }           
         }
         
-        if(data.geplant[0] === false){
+        if( data.geplant[0] === false ){
             
             arbeit.icon_style = 'color:Chartreuse;font-size:60px;display:block;';
             arbeit.icon_class = 'ion-checkmark-round';

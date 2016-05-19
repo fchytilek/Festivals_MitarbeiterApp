@@ -33,20 +33,27 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         }
   };
     $scope.ma_details = function(username) {
+        
         callToDeleteOrChangeFromOffeneArbeiten = false;
+        
         var json = {
-            vid:aktuelleVidGlobal,
-            username:username
+            vid : aktuelleVidGlobal,
+            username : username
         };
+        
         $.ajax({
-            type: "GET",
-            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
-            data: json,
-            dataType: 'json'
-        }).then(function(data){
+            
+            type : "GET",
+            url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/ma_details",
+            data : json,
+            dataType : 'json'
+            
+        }).then( function(data) {
+            
             $state.go('tabs.arbeitszeiten');
-            globalPauseIsUpdate=false;
-            setTimeout(function(){ma_details(data);}, 1);    
+            globalPauseIsUpdate = false;
+            setTimeout( function() { ma_details(data); }, 1 );
+            
         });
     };
     
@@ -58,7 +65,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         
         $.ajax({
             type: "GET",
-            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
+            url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/ma_details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -85,7 +92,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         };
         $.ajax({
             type: "GET",
-            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/anreisekosten_status",
+            url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/anreisekosten_status",
             data: json,
             dataType: 'json'
         }).then(function(data){ 
@@ -131,7 +138,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         };
         $.ajax({
             type: "GET",
-            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/ma_details",
+            url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/ma_details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -147,7 +154,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
                     standnummer:geleiteterStandGlobal};
         $.ajax({
             type: "GET",
-            url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
+            url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/details",
             data: json,
             dataType: 'json'
         }).then(function(data){
@@ -182,9 +189,13 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
     $scope.resizeScroll = function() {
         $ionicScrollDelegate.resize();
     };
+    
     $scope.standoptionen_mitarbeiterliste_anzeigen = function(standmitarbeiterOnly, data) {
+        
         $state.go('tabs.standoptionen_mitarbeiterliste.liste');
-        setTimeout(function() {
+        
+        setTimeout( function() {
+            
             var buttonHeight = $('#standoptionen_mitarbeiterliste_button').height();
             var listHeight = ($window.innerHeight-93-buttonHeight-20);
             $( ".standoptionen_mitarbeiterliste" ).css( "height",listHeight); 
@@ -192,9 +203,9 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
             
             standdetailsInObjektWandeln(data[0], standmitarbeiterOnly);  
             
-            
-        },1);
+        }, 1);
     };
+    
     $scope.arbeit_beginnen_anzeigen = function() {
         $state.go('tabs.arbeitBeginnen');        
     };
@@ -331,28 +342,31 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
              
     };
     $scope.arbeit_planen_hinzufuegen = function() {
+        
         arbeitPlanenHinzufuegen_abrechnungsStatusGlobal = $("#arbeit_planen_hinzufuegen_abrechnungsStatus").val();        
         arbeitPlanenHinzufuegen_arbeitsBeginnGlobal = new Date($('#arbeitPlanenHinzufuegen_beginn_date').val() +" "+ $('#arbeitPlanenHinzufuegen_beginn_time').val());
         arbeitPlanenHinzufuegen_arbeitsEndeGlobal = new Date($('#arbeitPlanenHinzufuegen_ende_date').val() +" "+ $('#arbeitPlanenHinzufuegen_ende_time').val());
         var pausen = document.getElementsByClassName("arbeit_planen_hinzufuegen_pause");
         var pausenListe = [];
-        for(i=0;i<pausen.length;i++){
+        
+        for( i = 0; i < pausen.length; i++ ) {
+            
             var pause_anfang = pausen[i].value;
             i++;
             var pause_ende = pausen[i].value;           
             var pause_anfang_Date = new Date($('#arbeitPlanenHinzufuegen_beginn_date').val() + " " + pause_anfang);
-            //alert($('#arbeitPlanenHinzufuegen_beginn_date').val());
-            //alert(pause_anfang);
-            //alert(pause_anfang_Date);
             var pause_ende_Date = new Date($('#arbeitPlanenHinzufuegen_beginn_date').val() +" " + pause_ende);
-            //alert(pause_ende_Date);
             pausenListe.push(pause_anfang_Date,pause_ende_Date);  
+            
         }
+        
         arbeitPlanenHinzufuegen_pausenListeGlobal = pausenListe;
-        setTimeout(function() {
+        
+        setTimeout( function() {
             $('#arbeitPlanen_list').scope().standoptionen_mitarbeiterliste_anzeigen(true, standdetails_dataGlobal);
-        },1);
+        }, 1);
     };
+    
     $scope.mitarbeiterAbschliessen = function(){
         actionToPerformGlobal = "mitarbeiterAbschliessen";
         setTimeout(function() {
@@ -363,26 +377,36 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
         $state.go('tabs.mitarbeiterVerschieben');
     };
     $scope.mitarbeiterVerschieben = function() {
+        
         actionToPerformGlobal = "mitarbeiterVerschieben";
         mitarbeiterVerschieben_standnummerGlobal = $('#mitarbeiterVerschieben_standnummer').val();        
-        if(mitarbeiterVerschieben_standnummerGlobal == geleiteterStandGlobal){
-            var json = {vid:aktuelleVidGlobal};
+        
+        if( mitarbeiterVerschieben_standnummerGlobal == geleiteterStandGlobal ) {
+            
+            var json = { vid : aktuelleVidGlobal };
+            
             $.ajax({
-                type: "GET",
-                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
-                data: json,
-                dataType: 'json'
-            }).then(function(data) {
-                setTimeout(function() {
+                
+                type : "GET",
+                url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung",
+                data : json,
+                dataType : 'json'
+                
+            }).then( function(data) {
+                
+                setTimeout( function() {
                     $('#liste_content').scope().standoptionen_mitarbeiterliste_anzeigen(false, data);
                 },1);  
             });
+            
         } else {
+            
             setTimeout(function() {
                 $('#liste_content').scope().standoptionen_mitarbeiterliste_anzeigen(true, standdetails_dataGlobal);
             },1);  
         }
     };
+    
     $scope.betreiber_optionen_anzeigen = function() {
         $state.go('betreiberoptionen');
     };
@@ -401,7 +425,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
                      standnummer:geleiteterStandGlobal };
         $.ajax({
                 type: "GET",
-                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/offeneArbeiten",
+                url: "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/offeneArbeiten",
                 data: json,
                 dataType: 'json'
             }).then(function(data) {
@@ -444,33 +468,39 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
     };    
     
     $scope.doRefresh = function() {
-        if(actionToPerformGlobal === "mitarbeiterVerschieben" && mitarbeiterVerschieben_standnummerGlobal == geleiteterStandGlobal) {
+        
+        if( actionToPerformGlobal === "mitarbeiterVerschieben" && mitarbeiterVerschieben_standnummerGlobal == geleiteterStandGlobal ) {
             
-            var json = {vid:aktuelleVidGlobal};
+            var json = { vid : aktuelleVidGlobal };
             
             $.ajax({
-                type: "GET",
-                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung",
-                data: json,
-                dataType: 'json'
-            }).then(function(data) {
+                
+                type : "GET",
+                url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung",
+                data : json,
+                dataType : 'json'
+                
+            }).then( function(data) {
                 
                 standdetailsInObjektWandeln(data[0], false);
                 $scope.$broadcast('scroll.refreshComplete');  
             });            
+            
         } else {  
             
             var json = {
-                vid:aktuelleVidGlobal,
-                standnummer:geleiteterStandGlobal
+                vid : aktuelleVidGlobal,
+                standnummer : geleiteterStandGlobal
             };
             
             $.ajax({
-                type: "GET",
-                url: "http://tomcat01lab.cs.univie.ac.at:31740/mitarbeiterService/veranstaltung/stand/details",
-                data: json,
-                dataType: 'json'
-            }).then(function(data){
+                
+                type : "GET",
+                url : "http://festivalservice-chytilek.rhcloud.com/MitarbeiterService/veranstaltung/stand/details",
+                data : json,
+                dataType : 'json'
+                
+            }).then( function(data) {
                 
                 standdetails_dataGlobal = data;
                 standdetailsInObjektWandeln(data[0], true);
@@ -520,7 +550,7 @@ app.controller('testController', function($scope, $state,  $window, $ionicScroll
     }; 
     $scope.vergangeneVeranstaltungen = function() { return vergangeneVeranstaltungenGlobal; };
     $scope.maDetailsData = function() {return maDetailsDataGlobal; };
-    $scope.arbeitDetailsData = function() {return arbeitDetailsDataGlobal};   
+    $scope.arbeitDetailsData = function() {return arbeitDetailsDataGlobal; };   
     $scope.vergangeneArbeitDetailsAnzeigen = function(arbeitstag, arbeit) {
         arbeitDetailsDataGlobal = $scope.maDetailsData().arbeitstage[arbeitstag].arbeiten[arbeit];       
         $state.go('tabs.past_arbeitszeiten_details');
